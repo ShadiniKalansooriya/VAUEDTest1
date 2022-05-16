@@ -12,6 +12,20 @@ services:
       vaued-network:
         ipv4_address: 10.10.10.10
 
+  vaued-prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    container_name: vaued-prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    networks:
+      vaued-network:
+        ipv4_address: 10.10.10.11
+
 
 networks:
   vaued-network:
