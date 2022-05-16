@@ -17,7 +17,7 @@ scrape_configs:
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
-    - targets: ['vaued-prometheus:9090']
+      - targets: ['vaued-prometheus:9090',172.31.82.57:9100]
 
   - job_name: 'vaued-api'
     scrape_interval: 5s
