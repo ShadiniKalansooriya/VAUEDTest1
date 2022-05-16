@@ -1,0 +1,23 @@
+version: "3.5"
+
+services:
+  vaued-api:
+    image: shadinikalansooriya98/vauedtest:latest
+    restart: unless-stopped
+    container_name: vaued-api
+    # image: vaued-flask-api
+    ports:
+      - "5000:5000"
+    networks:
+      vaued-network:
+        ipv4_address: 10.10.10.10
+
+
+networks:
+  vaued-network:
+    name: vaued-network
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.10.0/24
