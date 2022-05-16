@@ -6,6 +6,6 @@ RUN pip install -r requirements.txt
 RUN pip install gunicorn
 ENV FLASK_APP /app/server.py
 
-CMD gunicorn --bind 0.0.0.0:5000 wsgi:api
+CMD gunicorn --bind 0.0.0.0:5000 wsgiserver:api
 
 EXPOSE 5000
