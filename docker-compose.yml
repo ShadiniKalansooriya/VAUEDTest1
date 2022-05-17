@@ -40,7 +40,7 @@ services:
     env_file:
       - ./observability/config.observability
     networks:
-      example-network:
+      vaued-network:
         ipv4_address: 10.10.10.12
 
 
