@@ -577,7 +577,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "process_resident_memory_bytes{job=\"flask-api\"}",
+                    "expr": "process_resident_memory_bytes{job=\"vaued-api\"}",
                     "format": "time_series",
                     "intervalFactor": 1,
                     "legendFormat": "mem",
@@ -774,7 +774,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(process_cpu_seconds_total{job=\"flask-api\"}[30s])",
+                    "expr": "rate(process_cpu_seconds_total{job=\"vaued-api\"}[30s])",
                     "format": "time_series",
                     "intervalFactor": 1,
                     "legendFormat": "cpu",
