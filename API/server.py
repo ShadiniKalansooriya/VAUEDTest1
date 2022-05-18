@@ -23,32 +23,32 @@ def say_hello():
 
 @api.route("/semester1/")
 def semester1():
-    return jsonify(semester1())
+    return jsonify(say_semester1())
 
 
-def semester1():
+def say_semester1():
     return {"message": "This is the page for semester1"}
 
 @api.route("/semester2/")
 def semester2():
-    return jsonify(semester2())
+    return jsonify(say_semester2())
 
 
-def semester2():
+def say_semester2():
     return {"message": "This is the page for semester2"}
 
 @api.route("/semester3/")
 def semester3():
-    return jsonify(semester3())
+    return jsonify(say_semester3())
 
 
-def semester3():
+def say_semester3():
     return {"message": "This is the page for semester3"}
 
 @api.route("/semester4/")
 def semester4():
-    return jsonify(semester4())
+    return jsonify(say_semester4())
 
 
-def semester4():
+def say_semester4():
     return {"message": "This is the page for semester4"}
