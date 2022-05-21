@@ -6,7 +6,6 @@
 
 *we can access the grafana dashboard via http://174.129.60.60:3000/
 
-*Prometheus: http://174.129.60.60:9090/
 
 for the app routes : 
 http://174.129.60.60:5000/flask-prometheus-grafana-VAUED/
