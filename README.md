@@ -20,6 +20,7 @@ http://174.129.60.60:5000/semester3/
 http://174.129.60.60:5000/semester4/
 
 To create network traffic :
+
 watch -n 1 "curl http://174.129.60.60:5000/flask-prometheus-grafana-VAUED/"
 
 watch -n 2 "curl http://174.129.60.60:5000/semester1/"
