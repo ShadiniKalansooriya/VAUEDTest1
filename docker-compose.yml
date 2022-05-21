@@ -1,5 +1,8 @@
 version: "3.5"
 
+volumes:
+  web_data:
+    name: "web_data"
 services:
   vaued-api:
     image: shadinikalansooriya98/vauedtest:latest
@@ -27,7 +30,7 @@ services:
         ipv4_address: 10.10.10.11
 
   vaued-grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:5.4.0
     restart: unless-stopped
     user: "472"
     container_name: vaued-grafana
@@ -36,13 +39,36 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./observability/datasource.yml:/etc/grafana/provisioning/datasource.yml
+      - web_data:/var/lib/grafana 
+      - ./observability/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml  
     env_file:
       - ./observability/config.observability
     networks:
       vaued-network:
         ipv4_address: 10.10.10.12
+  
+  node-exporter:
+    image: prom/node-exporter
+    ports:
+      - 9300:9300
 
+    networks:
+      vaued-network:
+        ipv4_address: 10.10.10.13
+
+
+  cadvisor:
+    image: google/cadvisor:latest
+    ports:
+      - 8080:8080
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      vaued-network:
+        ipv4_address: 10.10.10.14
 
 networks:
   vaued-network:
